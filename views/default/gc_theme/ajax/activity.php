@@ -24,7 +24,7 @@ switch ($page_type) {
                 $options['subject_guid'] = elgg_get_logged_in_user_guid();
                 break;
         case 'owner':
-                $subject_username = get_input('subject_username', '', false);
+                $subject_username = get_input('owner', '', false);
                 $subject = get_user_by_username($subject_username);
                 if (!$subject) {
                         register_error(elgg_echo('river:subject:invalid_subject'));
