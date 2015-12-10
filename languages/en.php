@@ -1,5 +1,5 @@
 <?php
 
 return array(
-  'gc_theme:more' => 'This is an example',
+  'gc_theme:more' => 'Load more',
 );
