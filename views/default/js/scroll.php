@@ -71,6 +71,16 @@ elgg.scroll = function(base_url,context,page_type,owner,offset,count,iteration,a
 					params = {'base_url': base_url,'page_type': page_type,'owner': owner, 'offset': new_offset, 'already_viewed': already_viewed};
 					ajax_path ='ajax/view/gc_theme/ajax/dashboard';
 					break;
+				case 'activity':
+					iteration++;
+					delete_marker = elgg.delete_marker(count,iteration,20);
+					new_offset = parseInt(offset) + 20;
+					//console.log('base_url='+base_url+' context='+context+' page_type='+page_type+' owner='+owner+' offset='+offset);
+					more_url = elgg.more_url(base_url,context,page_type,owner,new_offset,count,iteration);
+					//console.log('more_url='+more_url);
+					params = {'base_url': base_url,'page_type': page_type,'owner': owner, 'offset': new_offset, 'already_viewed': already_viewed};
+					ajax_path ='ajax/view/gc_theme/ajax/activity';
+					break;
 				case 'friends':
 					iteration++;
 					delete_marker = elgg.delete_marker(count,iteration,20);

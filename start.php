@@ -1,6 +1,7 @@
 <?php
 function infinite_scroll_init() {
 	//Ajax pages for scroll
+	elgg_register_ajax_view('gc_theme/ajax/activity');
 	elgg_register_ajax_view('gc_theme/ajax/allgroups');
 	elgg_register_ajax_view('gc_theme/ajax/blogs');
 	elgg_register_ajax_view('gc_theme/ajax/bookmarks_all');
