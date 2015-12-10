@@ -103,7 +103,7 @@ if ($current_page < $total_pages) {
 }
 
 
-echo '<ul class="elgg-pagination">';
+echo '<div class="elgg-pagination">';
 if (1) {
 	elgg_load_js('elgg.scroll');
 	echo elgg_view('output/url', array('class'=>'gc-scroll', 'href'=>$base_url,'text'=>elgg_echo('gc_theme:more'),'rel' => 'nofollow','onclick'=>"elgg.scroll(\"$base_url\",\"$context\",\"$page_type\",\"$owner->username\",\"$offset\",\"$count\",\"$iteration\",\"$already_viewed\");return false;"));
@@ -114,7 +114,7 @@ if (1) {
 	} else {
 		echo "<li class=\"elgg-state-disabled\"><span>{$pages->prev['text']}</span></li>";
 	}
-	
+
 	foreach ($pages->items as $page) {
 		if ($page == $current_page) {
 			echo "<li class=\"elgg-state-selected\"><span>$page</span></li>";
@@ -129,7 +129,7 @@ if (1) {
 			echo "<li>$link</li>";
 		}
 	}
-	
+
 	if ($pages->next['href']) {
 		$link = elgg_view('output/url', $pages->next);
 		echo "<li>$link</li>";
@@ -138,4 +138,4 @@ if (1) {
 	}
 }
 
-echo '</ul>';
+echo '</div>';
