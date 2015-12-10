@@ -40,11 +40,11 @@ elgg.scroll = function(base_url,context,page_type,owner,offset,count,iteration,a
 				page_type = '';
 			}
 			if (context == 'embed') {
-				more_marker = '#colorbox ul.elgg-pagination';
+				more_marker = '#colorbox div.elgg-pagination';
 				$(more_marker).hide();
 				$(more_marker).before('<div class="elgg-ajax-loader" id="gc-pagination"></div>');
 			} else {
-				more_marker = 'ul.elgg-pagination';
+				more_marker = 'div.elgg-pagination';
 				$(more_marker).hide();
 				$(more_marker).before('<div class="elgg-ajax-loader" id="gc-pagination"></div>');
 			}
@@ -383,8 +383,8 @@ elgg.scroll = function(base_url,context,page_type,owner,offset,count,iteration,a
 					break;
 			};
 			elgg.get(ajax_path, {
-				data: params, 
-				dataType: 'html', 
+				data: params,
+				dataType: 'html',
 				success: function(data) {
 					//console.log("CONTEXT="+context);
 					//data=data.replace(/<ul class="elgg-pagination">.+<\/ul>/,'');
@@ -424,5 +424,5 @@ elgg.more_url = function(base_url,context,page_type,owner,offset,count,iteration
 	var pagination_more='<?php echo elgg_echo('gc_theme:more'); ?>';
 	var patt=new RegExp("\\?");
 	if (patt.test(base_url)) {concat = '&';}
-	return "<ul class='elgg-pagination'><a href="+base_url+concat+"offset="+offset+" onclick=\"elgg.scroll('"+base_url+"','"+context+"','"+page_type+"','"+owner+"','"+offset+"','"+count+"','"+iteration+"');return false;\">"+pagination_more+"</a></ul>";
+	return "<div class='elgg-pagination'><a href="+base_url+concat+"offset="+offset+" onclick=\"elgg.scroll('"+base_url+"','"+context+"','"+page_type+"','"+owner+"','"+offset+"','"+count+"','"+iteration+"');return false;\">"+pagination_more+"</a></div>";
 }
